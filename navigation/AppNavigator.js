@@ -1,11 +1,13 @@
- 
 import LoginScreen from "../screens/LoginScreen";
 import AdminDashboard from "../screens/AdminDashboard";
 import EngineerDashboard from "../screens/EngineerDashboard";
-import SubcontractorDashboard from "../screens/SubcontractorDashboard";  
+import SubcontractorDashboard from "../screens/SubcontractorDashboard";
 import ProjectManagement from "./screens/ProjectManagement";
 import TaskAssignment from "./screens/TaskAssignment";
-import DocumentManagement from "./screens/DocumentManagement";
+// Document Management Screen
+import DocumentManagement from "./screens/DocumentManagement/DocumentManagement";
+import UploadDocument from "./screens/DocumentManagement/UploadDocument";
+
 import BudgetFinancials from "./screens/BudgetFinancials";
 import PurchaseOrders from "./screens/PurchaseOrders";
 import VendorProcurement from "./screens/VendorProcurement";
@@ -19,7 +21,7 @@ import Settings from "./screens/Settings";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
- 
+
 const Stack = createNativeStackNavigator();
 
 export default function AppNavigator() {
@@ -38,9 +40,8 @@ export default function AppNavigator() {
         <Stack.Screen
           name="Login"
           component={LoginScreen}
-          options={{ title: "Login" }} 
+          options={{ title: "Login" }}
         />
-
         {/* Dashboards */}
         <Stack.Screen
           name="AdminDashboard"
@@ -57,7 +58,6 @@ export default function AppNavigator() {
           component={SubcontractorDashboard}
           options={{ title: "🔧 Subcontractor Dashboard" }}
         />
-
         {/* Admin Pages */}
         <Stack.Screen
           name="ProjectManagement"
@@ -69,10 +69,16 @@ export default function AppNavigator() {
           component={TaskAssignment}
           options={{ title: "Task Assignment" }}
         />
+        {/* Document Management */}
         <Stack.Screen
           name="DocumentManagement"
           component={DocumentManagement}
           options={{ title: "Document Management" }}
+        />
+        <Stack.Screen
+          name="UploadDocument"
+          component={UploadDocument}
+          options={{ title: "Upload New Document" }}
         />
         <Stack.Screen
           name="BudgetFinancials"

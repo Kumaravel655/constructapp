@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1",
+    "title": "Site Blueprint A",
+    "project": "Building Alpha",
+    "uploader": "John Admin",
+    "uploadDate": "2025-11-10",
+    "status": "Pending"
+  },
+  {
+    "id": "2",
+    "title": "Site Blueprint B",
+    "project": "Building Beta",
+    "uploader": "Jane Manager",
+    "uploadDate": "2025-11-12",
+    "status": "Approved"
+  },
+  {
+    "id": "3",
+    "title": "Site Blueprint C",
+    "project": "Building Gamma",
+    "uploader": "Mike Supervisor",
+    "uploadDate": "2025-11-15",
+    "status": "Rejected"
+  },
+  {
+    "id": "4",
+    "title": "Site Blueprint D",
+    "project": "Building Delta",
+    "uploader": "Alice Coordinator",
+    "uploadDate": "2025-11-18",
+    "status": "Pending"
+  },
+  {
+    "id": "5",
+    "title": "Site Blueprint E",
+    "project": "Building Epsilon",
+    "uploader": "Bob Engineer",
+    "uploadDate": "2025-11-20",
+    "status": "Approved"
+  },
+  {
+    "id": "6",
+    "title": "Site Blueprint F",
+    "project": "Building Zeta",
+    "uploader": "Carol Architect",
+    "uploadDate": "2025-11-22",
+    "status": "Rejected"
+  },
+  {
+    "id": "7",
+    "title": "Site Blueprint G",
+    "project": "Building Eta",
+    "uploader": "David Planner",
+    "uploadDate": "2025-11-25",
+    "status": "Pending"
+  },
+  {
+    "id": "8",
+    "title": "Site Blueprint H",
+    "project": "Building Theta",
+    "uploader": "Eve Designer",
+    "uploadDate": "2025-11-28",
+    "status": "Approved"
+  },
+  {
+    "id": "9",
+    "title": "Site Blueprint I",
+    "project": "Building Iota",
+    "uploader": "Frank Builder",
+    "uploadDate": "2025-11-30",
+    "status": "Rejected"
+  },
+  {
+    "id": "10",
+    "title": "Site Blueprint J",
+    "project": "Building Kappa",
+    "uploader": "Grace Foreman",
+    "uploadDate": "2025-12-30",
+    "status": "Rejected"
+  }
+]

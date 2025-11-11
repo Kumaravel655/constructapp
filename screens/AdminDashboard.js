@@ -52,15 +52,16 @@ export default function App() {
             </Text>
           </View>
         );
-        case "Documents":
-        return (
-          <View style={styles.pageContainer}>
-            <Text style={styles.pageTitle}>📁 Document Management</Text>
-            <Text style={styles.pageDesc}>
-              Organize and access all project-related documents and files.
-            </Text>
-          </View>
-        );  
+      case "Documents":
+        // return (
+        // <View style={styles.pageContainer}>
+        //   <Text style={styles.pageTitle}>📁 Document Management</Text>
+        //   <Text style={styles.pageDesc}>
+        //     Organize and access all project-related documents and files.
+        //   </Text>
+        // </View>
+        navigation.navigate("DocumentManagement");
+      // );
 
       case "Vendors":
         return (
@@ -72,16 +73,17 @@ export default function App() {
           </View>
         );
 
-        case "Communication":
+      case "Communication":
         return (
           <View style={styles.pageContainer}>
             <Text style={styles.pageTitle}>📞 Communication Center</Text>
-            <Text style={styles.pageDesc}
-              >Centralize all project communications and messages.</Text>
-            </View>
+            <Text style={styles.pageDesc}>
+              Centralize all project communications and messages.
+            </Text>
+          </View>
         );
 
-        case "Equipment":
+      case "Equipment":
         return (
           <View style={styles.pageContainer}>
             <Text style={styles.pageTitle}>🛠️ Equipment & Inventory</Text>
@@ -91,7 +93,7 @@ export default function App() {
           </View>
         );
 
-        case "Purchase":
+      case "Purchase":
         return (
           <View style={styles.pageContainer}>
             <Text style={styles.pageTitle}>🛒 Purchase Orders</Text>
@@ -101,7 +103,7 @@ export default function App() {
           </View>
         );
 
-        case "Safety":
+      case "Safety":
         return (
           <View style={styles.pageContainer}>
             <Text style={styles.pageTitle}>🦺 Safety & Compliance</Text>
@@ -111,23 +113,24 @@ export default function App() {
           </View>
         );
 
-        case "Users":
+      case "Users":
         return (
           <View style={styles.pageContainer}>
             <Text style={styles.pageTitle}>👥 User Management</Text>
-            <Text style={styles.pageDesc}> 
-                Manage user roles, permissions, and access levels.
+            <Text style={styles.pageDesc}>
+              Manage user roles, permissions, and access levels.
             </Text>
           </View>
         );
 
-        case "Budgets":
+      case "Budgets":
         return (
           <View style={styles.pageContainer}>
             <Text style={styles.pageTitle}>💰 Budget & Financials</Text>
-            <Text style={styles.pageDesc}
-              >Oversee project budgets, expenses, and financial reports.</Text>
-            </View>
+            <Text style={styles.pageDesc}>
+              Oversee project budgets, expenses, and financial reports.
+            </Text>
+          </View>
         );
 
       case "Reports":
@@ -148,27 +151,27 @@ export default function App() {
             </Text>
           </View>
         );
-    
+
       case "Logout":
         const logoutUser = () => {
-            navigation.navigate("Login"); 
+          navigation.navigate("Login");
           // Implement logout logic here
-        }
+        };
 
         return (
-            <View style={styles.pageContainer}>
-                <Text style={styles.pageTitle}>🔒 Logged Out</Text>
-                <Text style={styles.pageDesc}
-                >want to be logout </Text>
-                <TouchableOpacity style={styles.card} onPress={logoutUser}>
-                    <Text style={styles.cardText}>Confirm Logout</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card} onPress={() => setActivePage("Dashboard")}>
-                    <Text style={styles.cardText}>Cancel</Text>
-                </TouchableOpacity>
-            </View>
-
-            
+          <View style={styles.pageContainer}>
+            <Text style={styles.pageTitle}>🔒 Logged Out</Text>
+            <Text style={styles.pageDesc}>want to be logout </Text>
+            <TouchableOpacity style={styles.card} onPress={logoutUser}>
+              <Text style={styles.cardText}>Confirm Logout</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.card}
+              onPress={() => setActivePage("Dashboard")}
+            >
+              <Text style={styles.cardText}>Cancel</Text>
+            </TouchableOpacity>
+          </View>
         );
       default:
         return (
@@ -246,19 +249,17 @@ export default function App() {
           <Text style={styles.menuText}>Projects</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity 
-            onPress={() => handleMenuClick("Equipment")}    
-            style={styles.menuItem}
+        <TouchableOpacity
+          onPress={() => handleMenuClick("Equipment")}
+          style={styles.menuItem}
         >
-            <Ionicons name="construct-outline" size={20} color="#003366" />
-            <Text style={styles.menuText}>Equipment</Text>
+          <Ionicons name="construct-outline" size={20} color="#003366" />
+          <Text style={styles.menuText}>Equipment</Text>
         </TouchableOpacity>
-
-        
 
         <TouchableOpacity
           onPress={() => handleMenuClick("Documents")}
-          style={styles.menuItem}   
+          style={styles.menuItem}
         >
           <Ionicons name="document-outline" size={20} color="#003366" />
           <Text style={styles.menuText}>Documents</Text>
@@ -272,9 +273,9 @@ export default function App() {
           <Text style={styles.menuText}>Vendors</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity 
-            onPress={() => handleMenuClick("Communication")}    
-            style={styles.menuItem}
+        <TouchableOpacity
+          onPress={() => handleMenuClick("Communication")}
+          style={styles.menuItem}
         >
           <Ionicons name="call-outline" size={20} color="#003366" />
           <Text style={styles.menuText}>Communication</Text>
@@ -292,16 +293,16 @@ export default function App() {
           onPress={() => handleMenuClick("Safety")}
           style={styles.menuItem}
         >
-            <Ionicons name="shield-checkmark-outline" size={20} color="#003366" />
-            <Text style={styles.menuText}>Safety</Text>
+          <Ionicons name="shield-checkmark-outline" size={20} color="#003366" />
+          <Text style={styles.menuText}>Safety</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-            onPress={() => handleMenuClick("Users")}
-            style={styles.menuItem}
+          onPress={() => handleMenuClick("Users")}
+          style={styles.menuItem}
         >
-            <Ionicons name="person-outline" size={20} color="#003366" />
-            <Text style={styles.menuText}>Users</Text>
+          <Ionicons name="person-outline" size={20} color="#003366" />
+          <Text style={styles.menuText}>Users</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
