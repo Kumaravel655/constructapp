@@ -1,0 +1,368 @@
+{
+  "info": {
+    "name": "ConstructApp API Collection",
+    "description": "Complete API collection for ConstructApp - Construction Management System",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000/api",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin@constructapp.com\",\n  \"password\": \"admin123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login/",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "login", ""]
+            }
+          }
+        },
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"newuser@constructapp.com\",\n  \"password\": \"password123\",\n  \"email\": \"newuser@constructapp.com\",\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\",\n  \"role\": \"engineer\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register/",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "register", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/",
+              "host": ["{{base_url}}"],
+              "path": ["users", ""]
+            }
+          }
+        },
+        {
+          "name": "Get User Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/users/profile/",
+              "host": ["{{base_url}}"],
+              "path": ["users", "profile", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Projects",
+      "item": [
+        {
+          "name": "Get All Projects",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/projects/",
+              "host": ["{{base_url}}"],
+              "path": ["projects", ""]
+            }
+          }
+        },
+        {
+          "name": "Create Project",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Downtown Office Complex\",\n  \"description\": \"25-story office building construction\",\n  \"location\": \"123 Main St, Downtown\",\n  \"start_date\": \"2024-03-01\",\n  \"end_date\": \"2024-12-31\",\n  \"budget\": 5000000.00,\n  \"status\": \"active\",\n  \"project_manager\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/projects/",
+              "host": ["{{base_url}}"],
+              "path": ["projects", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tasks",
+      "item": [
+        {
+          "name": "Get All Tasks",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/tasks/",
+              "host": ["{{base_url}}"],
+              "path": ["tasks", ""]
+            }
+          }
+        },
+        {
+          "name": "Create Task",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Foundation Excavation\",\n  \"description\": \"Excavate foundation area according to blueprint specifications\",\n  \"project\": 1,\n  \"assigned_to\": 3,\n  \"priority\": \"high\",\n  \"status\": \"pending\",\n  \"start_date\": \"2024-03-15\",\n  \"due_date\": \"2024-03-25\",\n  \"estimated_hours\": 40\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/tasks/",
+              "host": ["{{base_url}}"],
+              "path": ["tasks", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Equipment",
+      "item": [
+        {
+          "name": "Get All Equipment",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/equipment/",
+              "host": ["{{base_url}}"],
+              "path": ["equipment", ""]
+            }
+          }
+        },
+        {
+          "name": "Add Equipment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Excavator CAT 320\",\n  \"type\": \"excavator\",\n  \"model\": \"CAT 320\",\n  \"serial_number\": \"EXC2024001\",\n  \"status\": \"available\",\n  \"project\": 1,\n  \"operator\": 3,\n  \"maintenance_due\": \"2024-04-15\",\n  \"location\": \"Site A - Zone 1\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/equipment/",
+              "host": ["{{base_url}}"],
+              "path": ["equipment", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Purchase Orders",
+      "item": [
+        {
+          "name": "Get All Purchase Orders",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/purchase-orders/",
+              "host": ["{{base_url}}"],
+              "path": ["purchase-orders", ""]
+            }
+          }
+        },
+        {
+          "name": "Create Purchase Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"po_number\": \"PO2024001\",\n  \"vendor\": 1,\n  \"project\": 1,\n  \"description\": \"Steel beams for foundation\",\n  \"total_amount\": 25000.00,\n  \"order_date\": \"2024-03-15\",\n  \"delivery_date\": \"2024-03-25\",\n  \"status\": \"pending\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/purchase-orders/",
+              "host": ["{{base_url}}"],
+              "path": ["purchase-orders", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Communications",
+      "item": [
+        {
+          "name": "Send Safety Alert",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sender\": 4,\n  \"receivers\": [1, 2, 3],\n  \"project\": 1,\n  \"message_type\": \"safety_alert\",\n  \"subject\": \"Safety Reminder - PPE Required\",\n  \"message\": \"Reminder: All personnel must wear hard hats, safety glasses, and steel-toed boots in the construction area.\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/communications/",
+              "host": ["{{base_url}}"],
+              "path": ["communications", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Attendance",
+      "item": [
+        {
+          "name": "Clock In",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"project\": 1,\n  \"check_in_time\": \"08:00:00\",\n  \"latitude\": 40.7128,\n  \"longitude\": -74.0060,\n  \"notes\": \"Starting foundation work\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/attendance/",
+              "host": ["{{base_url}}"],
+              "path": ["attendance", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Documents",
+      "item": [
+        {
+          "name": "Upload Blueprint",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"project\": 1,\n  \"task\": 1,\n  \"document_type\": \"blueprint\",\n  \"title\": \"Foundation Blueprint Rev 2.0\",\n  \"filename\": \"foundation_blueprint_v2.pdf\",\n  \"file_path\": \"/documents/blueprints/foundation_blueprint_v2.pdf\",\n  \"version\": \"2.0\",\n  \"description\": \"Updated foundation blueprint with revised dimensions\",\n  \"uploaded_by\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/documents/",
+              "host": ["{{base_url}}"],
+              "path": ["documents", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reports",
+      "item": [
+        {
+          "name": "Project Progress Report",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/reports/progress/?project=1&date_from=2024-03-01&date_to=2024-03-31",
+              "host": ["{{base_url}}"],
+              "path": ["reports", "progress", ""],
+              "query": [
+                {
+                  "key": "project",
+                  "value": "1"
+                },
+                {
+                  "key": "date_from",
+                  "value": "2024-03-01"
+                },
+                {
+                  "key": "date_to",
+                  "value": "2024-03-31"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
